@@ -28,4 +28,10 @@ class Department extends Model
         return $this->hasMany(Department::class, 'parent_id')
             ->orderBy('sort_order');
     }
+
+    public function websites()
+    {
+        return $this->hasMany(Website::class);
+    }
+
 }
