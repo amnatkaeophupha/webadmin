@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             DepartmentSeeder::class,
             WebsiteSeeder::class,
-
+            EmployeeSectionSeeder::class,
             ]);
     }
 }

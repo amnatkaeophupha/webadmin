@@ -26,8 +26,8 @@ class Website extends Model
     }
 
     // 🔗 has many sections (Step 4)
-    // public function employeeSections()
-    // {
-    //     return $this->hasMany(EmployeeSection::class);
-    // }
+    public function employeeSections()
+    {
+        return $this->hasMany(EmployeeSection::class);
+    }
 }
