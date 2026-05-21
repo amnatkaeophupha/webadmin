@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\DepartmentController;
 use App\Http\Controllers\Api\WebsiteController;
+use App\Http\Controllers\Api\EmployeeSectionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +23,10 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/departments', [DepartmentController::class, 'index']);
+
 Route::get('/websites', [WebsiteController::class, 'index']);
+
+Route::get('/employee-sections', [EmployeeSectionController::class, 'index']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
