@@ -4,14 +4,11 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class DepartmentSeeder extends Seeder
 {
     public function run(): void
     {
-        DB::table('departments')->truncate();
-
         $aruId = DB::table('departments')->insertGetId([
             'parent_id' => null,
             'name' => 'มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา',
