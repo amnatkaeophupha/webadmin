@@ -9,7 +9,8 @@ class EmployeeSectionController extends Controller
 {
     public function index()
     {
-        return EmployeeSection::with('website')
+        return EmployeeSection::with(['website', 'children'])
+            ->whereNull('parent_id')
             ->orderBy('sort_order')
             ->get();
     }

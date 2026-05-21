@@ -14,8 +14,15 @@ return new class extends Migration
         Schema::create('employee_sections', function (Blueprint $table) {
             $table->id();
             $table->foreignId('website_id')->constrained()->cascadeOnDelete();
+        
+            $table->foreignId('parent_id')
+                ->nullable()
+                ->constrained('employee_sections')
+                ->nullOnDelete();
+
             $table->string('title_th'); // ชื่อ section เช่น "ผู้บริหาร"
             $table->string('slug')->nullable();
+            $table->string('section_type')->default('general');
             $table->integer('sort_order')->default(0);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
