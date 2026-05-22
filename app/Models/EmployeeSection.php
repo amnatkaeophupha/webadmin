@@ -31,7 +31,7 @@ class EmployeeSection extends Model
 
     public function children()
     {
-        return $this->hasMany(EmployeeSection::class, 'parent_id');
+        return $this->hasMany(EmployeeSection::class, 'parent_id')->orderBy('sort_order');
     }
     // public function items()
     // {
