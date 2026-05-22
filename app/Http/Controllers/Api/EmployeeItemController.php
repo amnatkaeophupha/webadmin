@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\EmployeeSection;
-class EmployeeSectionController extends Controller
+use App\Models\EmployeeItem;
+
+class EmployeeItemController extends Controller
 {
     public function index()
     {
-        return EmployeeSection::with(['website', 'children'])
-            ->whereNull('parent_id')
+        return EmployeeItem::with(['employee', 'section'])
             ->orderBy('sort_order')
             ->get();
     }
