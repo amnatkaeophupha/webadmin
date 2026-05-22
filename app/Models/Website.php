@@ -19,13 +19,13 @@ class Website extends Model
         'sort_order',
     ];
 
-    // 🔗 belongs to department
+    protected $casts = ['is_active' => 'boolean',];
+
     public function department()
     {
         return $this->belongsTo(Department::class);
     }
 
-    // 🔗 has many sections (Step 4)
     public function employeeSections()
     {
         return $this->hasMany(EmployeeSection::class);

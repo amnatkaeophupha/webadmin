@@ -6,7 +6,8 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\DepartmentController;
 use App\Http\Controllers\Api\WebsiteController;
 use App\Http\Controllers\Api\EmployeeSectionController;
-
+use App\Http\Controllers\Api\WebsiteEmployeeController;
+use App\Http\Controllers\Api\EmployeeItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,10 @@ Route::get('/departments', [DepartmentController::class, 'index']);
 Route::get('/websites', [WebsiteController::class, 'index']);
 
 Route::get('/employee-sections', [EmployeeSectionController::class, 'index']);
+
+Route::get('/employee-items', [EmployeeItemController::class, 'index']);
+
+Route::get('/websites/{id}/employees', [WebsiteEmployeeController::class, 'show']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\EmployeeItem;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,6 +19,13 @@ class EmployeeSection extends Model
         'is_active'
     ];
 
+    protected $casts = ['is_active' => 'boolean',];
+    /*
+    |--------------------------------------------------------------------------
+    | Relationships
+    |--------------------------------------------------------------------------
+    */
+
     public function website()
     {
         return $this->belongsTo(Website::class);
@@ -33,8 +40,14 @@ class EmployeeSection extends Model
     {
         return $this->hasMany(EmployeeSection::class, 'parent_id')->orderBy('sort_order');
     }
-    // public function items()
-    // {
-    //     return $this->hasMany(EmployeeItem::class);
-    // }
+
+    public function items()
+    {
+        return $this->hasMany(EmployeeItem::class)->orderBy('sort_order');
+    }
+
+    public function employeeItems()
+    {
+        return $this->hasMany(EmployeeItem::class, 'employee_section_id');
+    }
 }

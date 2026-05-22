@@ -29,10 +29,11 @@ class DatabaseSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         $this->call([
-            UserSeeder::class,
             DepartmentSeeder::class,
             WebsiteSeeder::class,
             EmployeeSectionSeeder::class,
-            ]);
+            EmployeeSeeder::class,
+            EmployeeItemSeeder::class,
+        ]);
     }
 }
